@@ -3,7 +3,6 @@ package ashsic.SpiritFare.models;
 import lombok.Data;
 import java.util.List;
 import java.util.Map;
-import java.lang.reflect.Array;
 import java.util.HashMap;
 
 @Data
@@ -13,12 +12,10 @@ public class GameState {
     private int currentTurn;
     private int activePlayerIndex;
     private GamePhase currentPhase;
-    private Map<Player, Integer> playerHealth;
     private Map<Player, Integer> playerMana;
-    private Map<Player, Integer> playerBlood;
-    private Map<Player, List<Card>> playerHands;
+    private Card[][] playerHands;
     private Map<Player, List<Card>> playerDecks;
-    private Map<Player, List<Card>> playerFields;
+    private Map<Player, Card[]> playerFields;
     private Map<Player, List<Card>> playerDiscards;
 
     public enum GamePhase {
@@ -29,21 +26,20 @@ public class GameState {
     }
 
     public GameState() {
-        this.playerHealth = new HashMap<>();
+        this.players = new Player[2];
         this.playerMana = new HashMap<>();
-        this.playerBlood = new HashMap<>();
-        this.playerHands = new HashMap<>();
+        this.playerHands = new Card[2][6];
         this.playerDecks = new HashMap<>();
         this.playerFields = new HashMap<>();
         this.playerDiscards = new HashMap<>();
     }
 
     public boolean isPlayerTurn(Player player) {
-        return players.get(activePlayerIndex).equals(player);
+        return players[activePlayerIndex].equals(player);
     }
 
     public void nextTurn() {
-        activePlayerIndex = (activePlayerIndex + 1) % players.size();
+        activePlayerIndex = (activePlayerIndex + 1) % 2;
         currentTurn++;
         currentPhase = GamePhase.DRAW;
     }
