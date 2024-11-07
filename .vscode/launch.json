@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpiritFareApplication<SpiritFare>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "ashsic.SpiritFare.SpiritFareApplication",
+            "projectName": "SpiritFare",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
