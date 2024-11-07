@@ -4,12 +4,21 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "cards")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "dtype")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = SpiritCard.class, name = "SpiritCard"),
+    @JsonSubTypes.Type(value = EquipmentCard.class, name = "equipment")
+})
 public abstract class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

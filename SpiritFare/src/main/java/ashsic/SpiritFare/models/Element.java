@@ -5,5 +5,9 @@ public enum Element {
     WATER,
     EARTH,
     AIR,
-    VOID
+    VOID,
+    LIGHT,
+    DARK,
+    ARCANE,
+    NEUTRAL
 } 

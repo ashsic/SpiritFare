@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @Entity
 public class SpiritCard extends Card {
     private int attack;
-    private int health;
+    private int defense;
 
     @Override
     public CardType getType() {
