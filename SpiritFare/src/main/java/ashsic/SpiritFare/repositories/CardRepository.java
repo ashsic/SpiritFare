@@ -16,5 +16,5 @@ public interface CardRepository extends CrudRepository<Card, Long> {
     
     // Spirit card specific queries
     List<SpiritCard> findSpiritCardByAttackGreaterThan(int attack);
-    List<SpiritCard> findSpiritCardByHealthGreaterThan(int health);
+    List<SpiritCard> findSpiritCardByDefenseGreaterThan(int defense);
 } 

@@ -8,10 +8,10 @@ INSERT INTO card_effects (id, effect_name, effect_description, effect_value, dur
 (6, 'Weaken', 'Reduces target''s attack power', -2, 2, 'DEBUFF');
 
 -- Then insert cards with references to card effects
-INSERT INTO cards (name, description, element, resource_type, resource_cost, card_effect_id) VALUES
-('Flame Strike', 'A basic fire attack', 'FIRE', 'MANA', 2, 1),
-('Healing Light', 'Restore health to a friendly target', 'LIGHT', 'MANA', 2, 2),
-('Battle Rage', 'Increase your attack power', 'NEUTRAL', 'BLOOD', 1, 3),
-('Arcane Intellect', 'Draw more cards', 'ARCANE', 'MANA', 3, 4),
-('Mana Crystal', 'Gain additional mana', 'ARCANE', 'MANA', 0, 5),
-('Shadow Weakness', 'Weaken your opponent', 'DARK', 'BLOOD', 2, 6);
+INSERT INTO cards (dtype, name, description, element, resource_type, resource_cost, attack, defense, card_effect_id) VALUES
+('SpiritCard', 'Flame Strike', 'A basic fire attack', 'FIRE', 'MANA', 2, 5, 5, 1),
+('SpiritCard', 'Healing Light', 'Restore health to a friendly target', 'LIGHT', 'MANA', 2, 5, 5, 2),
+('SpiritCard', 'Battle Rage', 'Increase your attack power', 'NEUTRAL', 'BLOOD', 1, 5, 5, 3),
+('SpiritCard', 'Arcane Intellect', 'Draw more cards', 'ARCANE', 'MANA', 3, 5, 5, 4),
+('SpiritCard', 'Mana Crystal', 'Gain additional mana', 'ARCANE', 'MANA', 0, 5, 5, 5),
+('SpiritCard', 'Shadow Weakness', 'Weaken your opponent', 'DARK', 'BLOOD', 2, 5, 5, 6);
