@@ -14,10 +14,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf
-                .ignoringRequestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")))
+            .csrf(csrf -> csrf.disable())
             .headers(headers -> headers
-                .frameOptions().disable())
+                .addHeaderWriter((request, response) -> response.setHeader("X-Frame-Options", "SAMEORIGIN")))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
                 .requestMatchers(AntPathRequestMatcher.antMatcher("/api/**")).permitAll()
